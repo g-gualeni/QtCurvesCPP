@@ -25,7 +25,8 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 signals:
-
+private:
+    QPointF compute_astroid(float t);
 private:
     QColor mBackgroundColor = qRgb(160,160,160);
     QColor mShapeColor = qRgb(255,255,255);
