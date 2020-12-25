@@ -28,5 +28,10 @@
         <source>Hypo Cycloid</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="mainwindow.ui" line="56"/>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
