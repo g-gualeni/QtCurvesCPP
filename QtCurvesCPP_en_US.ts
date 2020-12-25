@@ -8,5 +8,25 @@
         <source>MainWindow</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="mainwindow.ui" line="28"/>
+        <source>Astroid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="35"/>
+        <source>Cycloid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="42"/>
+        <source>Huygens</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="49"/>
+        <source>Hypo Cycloid</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
