@@ -94,6 +94,18 @@ QPointF RenderArea::compute_line(float t)
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 void RenderArea::on_shape_changed()
 {
     switch (mShape) {
