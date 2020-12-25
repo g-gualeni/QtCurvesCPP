@@ -27,35 +27,55 @@ void MainWindow::update_ui()
 void MainWindow::on_btnAstroid_clicked()
 {
     this->ui->renderArea->setShape(RenderArea::Astroid);
-    this->ui->renderArea->repaint();
     update_ui();
 }
 
 void MainWindow::on_btnCycloid_clicked()
 {
     this->ui->renderArea->setShape(RenderArea::Cycloid);
-    this->ui->renderArea->repaint();
     update_ui();
 }
 
 void MainWindow::on_btnHuygens_clicked()
 {
     this->ui->renderArea->setShape(RenderArea::HuygensCycloid);
-    this->ui->renderArea->repaint();
     update_ui();
 }
 
 void MainWindow::on_btnHypo_clicked()
 {
     this->ui->renderArea->setShape(RenderArea::HypoCycloid);
-    this->ui->renderArea->repaint();
     update_ui();
 }
 
 void MainWindow::on_btnLine_clicked()
 {
     this->ui->renderArea->setShape(RenderArea::Line);
-    this->ui->renderArea->repaint();
+    update_ui();
+}
+
+
+void MainWindow::on_btnCircle_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Circle);
+    update_ui();
+}
+
+void MainWindow::on_btnEllipse_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Ellipse);
+    update_ui();
+}
+
+void MainWindow::on_btnFancy_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Fancy);
+    update_ui();
+}
+
+void MainWindow::on_btnStarfish_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Starfish);
     update_ui();
 }
 
@@ -88,3 +108,7 @@ void MainWindow::on_btnLineColor_clicked()
     color = QColorDialog::getColor(color, this, "Select Shape Color");
     ui->renderArea->setShapeColor(color);
 }
+
+
+
+

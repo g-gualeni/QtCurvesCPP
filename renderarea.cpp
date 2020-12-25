@@ -51,6 +51,11 @@ void RenderArea::paintEvent(QPaintEvent *event)
         prevPixel = pixel;
         t+=step;
     }
+
+    QPointF point = compute(mIntervalLength);
+    QPoint pixel;
+    pixel.setX(point.x() * mScale + center.x());
+    pixel.setY(point.y() * mScale + center.y());
 }
 
 QPointF RenderArea::compute_astroid(float t)
@@ -94,6 +99,41 @@ QPointF RenderArea::compute_line(float t)
 
 }
 
+QPointF RenderArea::compute_circle(float t)
+{
+    return QPointF(
+        cos(t),
+        sin(t)
+        );
+}
+
+QPointF RenderArea::compute_ellipse(float t)
+{
+    return QPointF(
+        2.0 * cos(t),
+        1.1 * sin(t)
+        );
+}
+
+QPointF RenderArea::compute_fancy(float t)
+{
+    return QPointF(
+        11*cos(t) - 6*cos(t*11.0/6.0), // X
+        11*sin(t) - 6*sin(t*11.0/6.0)  // Y
+        );
+}
+
+QPointF RenderArea::compute_starfish(float t)
+{
+    float R = 5.0;
+    float r = 3.0;
+    float d = 5.0;
+    return QPointF(
+        (R-r)*cos(t) + d*cos(t*(R-r)/r),
+        (R-r)*sin(t) - d*sin(t*(R-r)/r)
+        );
+}
+
 void RenderArea::on_shape_changed()
 {
     switch (mShape) {
@@ -127,6 +167,33 @@ void RenderArea::on_shape_changed()
         mScale = 50;
         mStepCount = 128;
         break;
+
+    case Circle:
+        mIntervalLength = 2*M_PI;
+        mScale = 100;
+        mStepCount = 512;
+        break;
+
+    case Ellipse:
+        mIntervalLength = 2*M_PI;
+        mScale = 75;
+        mStepCount = 128;
+        break;
+
+    case Fancy:
+        mIntervalLength = 12*M_PI;
+        mScale = 10;
+        mStepCount = 512;
+        break;
+
+    case Starfish:
+        mIntervalLength = 6*M_PI;
+        mScale = 25;
+        mStepCount = 256;
+        break;
+
+    default:
+        break;
     }
 }
 
@@ -152,6 +219,21 @@ QPointF RenderArea::compute(float t)
 
     case Line:
         return compute_line(t);
+        break;
+
+    case Circle:
+        return compute_circle(t);
+        break;
+    case Ellipse:
+        return compute_ellipse(t);
+        break;
+
+    case Fancy:
+        return compute_fancy(t);
+        break;
+
+    case Starfish:
+        return compute_starfish(t);
         break;
 
     default:
