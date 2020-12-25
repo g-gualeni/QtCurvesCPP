@@ -16,7 +16,10 @@ public:
     enum ShapesType {Astroid, Cycloid, HuygensCycloid, HypoCycloid, Line};
 
     QColor backgroundColor() const {return mBackgroundColor;}
-    void setBackgroundColor(const QColor &backgroundColor) {mBackgroundColor = backgroundColor;}
+    void setBackgroundColor(const QColor &backgroundColor) {mBackgroundColor = backgroundColor; repaint();}
+
+    QColor shapeColor() const{return mShapeColor;}
+    void setShapeColor(const QColor &shapeColor) {mShapeColor = shapeColor; repaint();}
 
     ShapesType shape() const {return mShape;}
     void setShape(const ShapesType &shape) {mShape = shape; on_shape_changed();}
@@ -29,6 +32,7 @@ public:
 
     int stepCount() const {return mStepCount;}
     void setStepCount(int stepCount) {mStepCount = stepCount; repaint();}
+
 
 protected:
     void paintEvent(QPaintEvent *event) override;

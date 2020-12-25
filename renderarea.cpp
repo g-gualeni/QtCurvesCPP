@@ -9,7 +9,7 @@ RenderArea::RenderArea(QWidget *parent) : QWidget(parent)
 
 QSize RenderArea::minimumSizeHint() const
 {
-    return QSize(100,100);
+    return QSize(400,400);
 }
 
 QSize RenderArea::sizeHint() const
@@ -93,18 +93,6 @@ QPointF RenderArea::compute_line(float t)
             1-t);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 void RenderArea::on_shape_changed()
 {
